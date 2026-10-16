@@ -101,6 +101,30 @@ def trigonometria_por_angulo():
         print(f"Tangente: {tangente:.4f}")
 
 
+def bhaskara():
+    print("\n===== BHASKARA =====")
+
+    a = ler_numero("Digite o valor de a: ")
+    b = ler_numero("Digite o valor de b: ")
+    c = ler_numero("Digite o valor de c: ")
+
+    if a == 0:
+        print("O valor de 'a' não pode ser zero!")
+        return
+
+    delta = b ** 2 - 4 * a * c
+
+    if delta < 0:
+        print("Não existem raízes reais.")
+    elif delta == 0:
+        x = -b / (2 * a)
+        print(f"Existe uma raiz real: x = {x:.2f}")
+    else:
+        x1 = (-b + math.sqrt(delta)) / (2 * a)
+        x2 = (-b - math.sqrt(delta)) / (2 * a)
+        print(f"Existem duas raízes reais: x1 = {x1:.2f}, x2 = {x2:.2f}")
+
+
 def menu():
     while True:
         print("\n==============================")
@@ -109,7 +133,8 @@ def menu():
         print("[1] - Eletricidade")
         print("[2] - Trigonometria pelos lados")
         print("[3] - Trigonometria pelo ângulo")
-        print("[4] - Sair")
+        print("[4] - Bhaskara")
+        print("[5] - Sair")
 
         try:
             opcao = int(input("Escolha uma opção: "))
@@ -127,6 +152,9 @@ def menu():
             trigonometria_por_angulo()
 
         elif opcao == 4:
+            bhaskara()
+
+        elif opcao == 5:
             print("Programa encerrado!")
             break
 
